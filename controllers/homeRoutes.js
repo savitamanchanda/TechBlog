@@ -11,6 +11,10 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment,
+          attributes: ['id', 'text', 'blog_id', 'user_id'],
+        }
       ],
     });
 
@@ -27,27 +31,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/comment/:id', async (req, res) => {
-    try {
-      const commentData = await Blog.findAll({
-        where: {
-            blog_id: req.params.id
-        },
-      });
-  
-      const comment = commentData.get({ plain: true });
-  
-      res.render('comment', {
-        ...comment,
-        logged_in: req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
 router.get('/blog/:id', async (req, res) => {
   try {
+
+    if(!req.session.logged_in){
+      res.redirect("/login");
+      return;
+    };
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
@@ -60,10 +50,22 @@ router.get('/blog/:id', async (req, res) => {
       ],
     });
 
-    const posts = blogData.get({ plain: true });
+    const commentData = await Comment.findAll(req.params.id, {
+    where: {
+      blog_id: req.params.id
+    },
+    include: {
+      model: User,
+      attributes: ['name'],
+    }
+    })
 
-    res.render('post', {
-      ...posts,
+    const posts = blogData.get({ plain: true });
+    const comment = commentData.map(comments => comments.get({plain: true}))
+    posts.comments = comment
+
+    res.render('blog', {
+      posts,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -71,56 +73,25 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
-    try {
-      const blogData = await Blog.findByPk(req.params.id, {
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
-      });
-  
-      const posts = blogData.get({ plain: true });
-  
-      res.render('post', {
-        ...posts,
-        logged_in: req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
-
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 router.get('/login', (req, res) => {
 
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/');
     return;
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;
