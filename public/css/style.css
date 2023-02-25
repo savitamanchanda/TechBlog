@@ -4,6 +4,7 @@ html {
 
 body {
     text-align: center;
+    background-color: #0c0c0c ;
 }
   
 main {
@@ -63,6 +64,16 @@ main {
   h6 {
     margin: 0 0 0.5rem;
     line-height: 1.25;
+    color: #535353;
+  }
+
+  p {
+    color: #535353;
+  }
+
+  label {
+    color: #535353;
+    font-size: 15px;
   }
   
   h1 {
@@ -631,12 +642,12 @@ main {
   }
   
   .btn.btn-primary {
-    background-color: #001852;
+    background-color: #024f4a;
     color: #d9e9e8;
   }
   
   .btn.btn-primary:hover {
-    background-color: #57779a;
+    background-color: #569891;
   }
   
   .btn.btn-danger {
