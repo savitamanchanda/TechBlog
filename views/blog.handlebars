@@ -2,4 +2,33 @@
   <h2>{{name}}</h2>
   <p>{{description}}</p>
   <p>Posted by {{user.name}} on {{format_date date_created}}</p>
+
+  {{#if logged_in}}
+  <form class="comment_form">
+    <div>
+        <textarea id="body" name="body"></textarea>
+    </div>
+    <div>
+        <button type="submit">Add Comment</button>
+    </div>
+  </form>
+  {{/if}}
+
+  <h3>Comments</h3>
+  <div class="comments">
+    {{#each comments }}
+    <section class="comment">
+        <div class="name">
+            {{user.name}} 
+        </div>
+        <div class="text">
+            {{text}}
+        </div>
+    </section>
+    {{/each}}
 </div>
+</div>
+
+{{#if logged_in}}
+<script src="/js/comment.js"></script>
+{{/if}}
