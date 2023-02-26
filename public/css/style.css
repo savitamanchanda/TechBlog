@@ -56,6 +56,16 @@ main {
     color: #1c1c1c;
   }
   
+  .text {
+    font-size: 15px;
+    padding: 5px;
+    color: #024f4a;
+  }
+
+  .name {
+    color: #535353;
+  }
+  
   h1,
   h2,
   h3,
@@ -86,6 +96,7 @@ main {
   
   h3 {
     font-size: 1.75rem;
+    padding: 10px;
   }
   
   h4 {
