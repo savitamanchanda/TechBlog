@@ -93,7 +93,7 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
   ## Links to the Deployed Application 
 
-  * The URL of the deployed application - 
+  * The URL of the deployed application - https://ancient-taiga-05046.herokuapp.com/
 
   * The URL of the GitHub repository - https://github.com/savitamanchanda/TechBlog
 
