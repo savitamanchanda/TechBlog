@@ -98,7 +98,7 @@ THEN I am able to view comments but I am prompted to log in again before I can a
   * The URL of the GitHub repository - https://github.com/savitamanchanda/TechBlog
 
   * [Video Demonstration](./assets%3Aimages/Tech%20Blog.gif)
-  * ![](./assets%3Aimages/1.png)
-  * ![](./assets%3Aimages/2.png)
-  * ![](./assets%3Aimages/3.png)
-  * ![](./assets%3Aimages/4.png)
+  ![](./assets%3Aimages/1.png)
+  ![](./assets%3Aimages/2.png)
+  ![](./assets%3Aimages/3.png)
+  ![](./assets%3Aimages/4.png)
