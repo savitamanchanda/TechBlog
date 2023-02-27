@@ -18,7 +18,7 @@ A CMS-style blog site similar to a Wordpress site, where developers can publish 
   
 Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
-[Video Demonstration](./assets%3Aimages/e-commerce.gif)
+![Video Demonstration](./assets%3Aimages/e-commerce.gif)
 
   ## Installation 
 
@@ -98,7 +98,7 @@ THEN I am able to view comments but I am prompted to log in again before I can a
   * The URL of the GitHub repository - https://github.com/savitamanchanda/TechBlog
 
   * [Video Demonstration](./assets%3Aimages/Tech%20Blog.gif)
-  * [](./assets%3Aimages/1.png)
-  * [](./assets%3Aimages/2.png)
-  * [](./assets%3Aimages/3.png)
-  * [](./assets%3Aimages/4.png)
+  * ![](./assets%3Aimages/1.png)
+  * ![](./assets%3Aimages/2.png)
+  * ![](./assets%3Aimages/3.png)
+  * ![](./assets%3Aimages/4.png)
